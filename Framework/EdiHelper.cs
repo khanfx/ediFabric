@@ -125,7 +125,7 @@ namespace EdiFabric.Framework
                 : contents.Split(interchangeContext.SegmentTerminator.ToCharArray(),
                     StringSplitOptions.RemoveEmptyEntries);
 
-            result = (from r in result select r.Trim()).ToArray();
+            result = (from r in result select r.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToArray();
             return result;
 
         }
